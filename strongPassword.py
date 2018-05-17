@@ -1,12 +1,16 @@
 #! /usr/bin/python3
-
 # strongPassword - A program that uses regex to determine password strength
 
-# TODO: Define a regex for a weak password
+import re
 
-# TODO: Define a regex for an average password
+# Regex for lowercase letters
+lowRegex = re.compile(r'[a-z]+')
 
-# TODO: Define a regex for a strong password
+# Regex for uppercase letters
+upRegex = re.compile(r'[A-Z]+')
+
+# Regex for numbers
+numRegex = re.compile(r'[0-9]+')
 
 # TODO: Get the password from user input
 
