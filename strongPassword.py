@@ -3,15 +3,33 @@
 
 import re
 
-# Regex for lowercase letters
-lowRegex = re.compile(r'[a-z]+')
+# Get the password from user input
+passwd = input('Input your password: ')
 
-# Regex for uppercase letters
-upRegex = re.compile(r'[A-Z]+')
+# Match the password with the different regex to determine strength
+def strength( passwd ):
+    # Regex for lowercase letters
+    lowRegex = re.compile(r'[a-z]+')
 
-# Regex for numbers
-numRegex = re.compile(r'[0-9]+')
+    # Regex for uppercase letters
+    upRegex = re.compile(r'[A-Z]+')
 
-# TODO: Get the password from user input
+    # Regex for numbers
+    numRegex = re.compile(r'[0-9]+')
 
-# TODO: Match the password with the different regex to determine strength
+    level = 0
+    if len(passwd) >= 8:
+        level += 1
+    if lowRegex.search(passwd) != None:
+        level += 1
+    if upRegex.search(passwd) != None:
+        level += 1
+    if numRegex.search(passwd) != None:
+        level += 1
+    
+    if level == 4:
+        return 'This Password is Strong'
+    else:
+        return 'This is Password is Weak'
+
+print(strength(passwd))
